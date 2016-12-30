@@ -23,10 +23,11 @@ if (typeof window !== 'undefined') {
 
 function mount(layoutClass, regions) {
   var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  var context = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
   options.rootId = options.rootId || 'react-root';
   options.rootProps = options.rootProps || {};
-  mounter(layoutClass, regions, options);
+  mounter(layoutClass, regions, options, context);
 }
 
 function withOptions(options, fn) {

@@ -17,7 +17,7 @@ var _utils = require('./utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function mounter(layoutClass, regions, options) {
+function mounter(layoutClass, regions, options, context) {
   var el = _react2.default.createElement(layoutClass, regions);
   var elHtml = _server2.default.renderToString(el);
 
@@ -38,6 +38,6 @@ function mounter(layoutClass, regions, options) {
   }
 
   var FlowRouter = Package['bensventures:flow-router-ssr'].FlowRouter;
-  var ssrContext = FlowRouter.ssrContext.get();
+  var ssrContext = context || FlowRouter.ssrContext.get();
   ssrContext.setHtml(html);
 } /* global Package */
